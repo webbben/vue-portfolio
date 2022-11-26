@@ -3,6 +3,7 @@
 
     <v-navigation-drawer 
       app
+      dark
       temporary
       v-model="showNavDrawer">
       <v-list>
@@ -22,7 +23,13 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app dark>
+    <v-app-bar 
+      app
+      dark
+      shrink-on-scroll
+      fade-img-on-scroll
+      src="https://www.cnet.com/a/img/resize/fe170c9962ec444015d51bc879ec27b7e4318dc6/hub/2022/08/18/dae391cf-315c-4543-b8fb-adef44946d37/screen-shot-2022-08-18-at-2-02-33-pm.png?auto=webp"
+    >
       <v-app-bar-nav-icon 
         @click.stop="showNavDrawer = !showNavDrawer"
         class="hidden-sm-and-up"></v-app-bar-nav-icon>
