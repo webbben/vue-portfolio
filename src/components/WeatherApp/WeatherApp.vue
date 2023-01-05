@@ -1,16 +1,32 @@
 <template>
     <v-card dark class="fadeIn ma-2">
-        <div v-if="loading">
+        <v-container>
+            <div v-if="loading">
             <v-progress-circular
                 indeterminate
             />
-        </div>
+            </div>
 
-        <div v-if="weather">
-            <v-card-title>Madison, WI</v-card-title>
-            <v-card-subtitle>{{this.weather}}</v-card-subtitle>
-            <v-card-text>{{this.temp}}</v-card-text>
-        </div>
+            <div v-if="!loading">
+                <v-row>
+                    <v-col>
+                        <span class="title">Madison, WI</span>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>{{this.weather}}</v-col>
+                    <v-col>
+                        <v-icon large>{{this.icon}}</v-icon>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <span>{{this.temp}} °F</span>
+                    </v-col>
+                </v-row>
+            </div>
+        </v-container>
+        
         
     </v-card>
 </template>
@@ -27,7 +43,7 @@ export default {
             loading: false,
             weather: String,
             temp: Number,
-            image: String,
+            icon: String,
         }
     },
     methods: {
@@ -36,6 +52,7 @@ export default {
             const weatherData = await loadWeatherData(units)
             this.weather = weatherData.weather
             this.temp = weatherData.temp
+            this.icon = weatherData.icon
             console.log(weatherData)
             this.loading = false
         }

@@ -1,7 +1,9 @@
 <template>
     <v-container>
         <v-row>
-            Home
+            <v-col class="text-sm-center">
+                <h3>Home Dashboard</h3>
+            </v-col>
         </v-row>
         <v-row>
             <WeatherApp />
